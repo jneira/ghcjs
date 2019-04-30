@@ -122,7 +122,7 @@ copy_dir() {
   # echo "  $SRCPATH"
   # echo "  $DIR"
   if [ $LINK -ne 0 ]; then
-    rm -f "$DIR"
+    rm -rf "$DIR"
     gnuln -rs "$SRCPATH/$DIR" "$DIR"
   else
     cp -r "$SRCPATH/$DIR" "."
@@ -401,7 +401,7 @@ for DIR in rts stg; do
   copy_dir "$GHCSRC/includes" "$DIR"
 done
 
-for FILE in Cmm.h CodeGen.Platform.hs ghcautoconf.h ghcconfig.h ghcplatform.h \
+for FILE in Cmm.h CodeGen.Platform.hs ghcconfig.h ghcplatform.h \
             HsFFI.h MachDeps.h RtsAPI.h Rts.h Stg.h; do
   copy_file "$GHCSRC/includes" "$FILE"
 done
